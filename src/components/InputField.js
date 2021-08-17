@@ -1,8 +1,12 @@
+<<<<<<< HEAD
+import React, { useCallback } from "react";
+=======
 import React, { useCallback } from 'react';
 import { BsArrowRepeat, BsTrash } from 'react-icons/bs';
 /** @jsxImportSource @emotion/react */
 import { jsx, css, keyframes } from '@emotion/react';
 import { COLOR_STYLES } from 'styles';
+>>>>>>> 5c8747abcd380469edc28c35b99099315a3c34f7
 
 const InputField = ({ inputValue, setInputValue, handleSubmit }) => {
   const handleChange = useCallback(

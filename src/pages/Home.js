@@ -1,9 +1,15 @@
+<<<<<<< HEAD
+import React, { useState, useCallback } from "react";
+import { quickSort, getNumsArray, inputValidate } from "utils";
+import { Timer, Clock, InputField, OutputField } from "components";
+=======
 import React, { useState, useCallback } from 'react';
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from '@emotion/react';
 import { COLOR_STYLES, flexCenter } from 'styles';
 import { quickSort, getNumsArray } from 'utils';
 import { Timer, Clock, InputField, OutputField } from 'components';
+>>>>>>> 5c8747abcd380469edc28c35b99099315a3c34f7
 
 const Home = () => {
   const [inputValue, setInputValue] = useState('');
@@ -13,6 +19,10 @@ const Home = () => {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
+      if (!inputValidate(inputValue)) {
+        alert("잘못된 형식의 입력 데이터입니다.");
+        return;
+      }
 
       setAscendingNums(quickSort(getNumsArray(inputValue)));
       setTimeout(() => {

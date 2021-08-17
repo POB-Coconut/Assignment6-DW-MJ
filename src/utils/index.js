@@ -1,4 +1,5 @@
-import { quickSort } from './quickSort';
-import { getNumsArray } from './getNumsArray';
+import { quickSort } from "./quickSort";
+import { getNumsArray } from "./getNumsArray";
+import { inputValidate } from "./inputValidate";
 
-export { quickSort, getNumsArray };
+export { quickSort, getNumsArray, inputValidate };
