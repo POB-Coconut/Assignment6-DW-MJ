@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 
 const InputField = ({ inputValue, setInputValue, handleSubmit }) => {
   const handleChange = useCallback(

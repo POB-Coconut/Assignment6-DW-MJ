@@ -17,7 +17,5 @@ export const quickSort = (array) => {
     }
   }
 
-  console.log(`left: ${left}, pivot: ${pivot}, right: ${right}`);
-
   return quickSort(left).concat(pivot, quickSort(right));
 };

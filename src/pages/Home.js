@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { quickSort, getNumsArray } from "utils";
+import { quickSort, getNumsArray, inputValidate } from "utils";
 import { Timer, Clock, InputField, OutputField } from "components";
 
 const Home = () => {
@@ -10,7 +10,10 @@ const Home = () => {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-
+      if (inputValidate(inputValue)) {
+        alert("잘못된 형식의 입력 데이터입니다.");
+        return;
+      }
       setAscendingNums(quickSort(getNumsArray(inputValue)));
       setTimeout(() => {
         setDescendingNums(quickSort(getNumsArray(inputValue)).reverse());
