@@ -1,4 +1,4 @@
-export const quickSort = (array) => {
+export const quickSort = (array, command) => {
   if (array.length < 2) {
     return array;
   }
@@ -17,5 +17,7 @@ export const quickSort = (array) => {
     }
   }
 
-  return quickSort(left).concat(pivot, quickSort(right));
+  return command === "asc"
+    ? quickSort(left, command).concat(pivot, quickSort(right, command))
+    : quickSort(right, command).concat(pivot, quickSort(left, command));
 };

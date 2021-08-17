@@ -1,8 +1,8 @@
-import React from 'react';
-import { BsArrowRepeat, BsTrash } from 'react-icons/bs';
+import React from "react";
+import { BsArrowRepeat, BsTrash } from "react-icons/bs";
 /** @jsxImportSource @emotion/react */
-import { css, keyframes } from '@emotion/react';
-import { COLOR_STYLES } from 'styles';
+import { css, keyframes } from "@emotion/react";
+import { COLOR_STYLES } from "styles";
 
 const InputField = ({ props }) => {
   const { inputValue, handleChange, handleSubmit, handleClick, isLoading } =
@@ -11,18 +11,18 @@ const InputField = ({ props }) => {
   return (
     <form css={formStyle} onSubmit={handleSubmit}>
       <textarea
-        name='inputValue'
-        rows='5'
+        name="inputValue"
+        rows="5"
         value={inputValue}
         onChange={handleChange}
-        placeholder='숫자를 아래와 같이 입력해주세요. &#10;e.g. 1,2,3,4'
-      ></textarea>
+        placeholder="숫자를 아래와 같이 입력해주세요. &#10;e.g. 1,2,3,4"
+      />
 
       <div css={btnContainer}>
-        <button type='submit'>
+        <button type="submit">
           <BsArrowRepeat css={isLoading && spin} />
         </button>
-        <button type='button' onClick={handleClick}>
+        <button type="button" onClick={handleClick}>
           <BsTrash />
         </button>
       </div>
@@ -39,7 +39,7 @@ const formStyle = css`
   textarea {
     height: 100%;
     width: 100%;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-size: 1.5rem;
     padding: 10px;
     border-radius: 3px;
