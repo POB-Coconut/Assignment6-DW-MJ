@@ -10,10 +10,11 @@ const Home = () => {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      if (inputValidate(inputValue)) {
+      if (!inputValidate(inputValue)) {
         alert("잘못된 형식의 입력 데이터입니다.");
         return;
       }
+
       setAscendingNums(quickSort(getNumsArray(inputValue)));
       setTimeout(() => {
         setDescendingNums(quickSort(getNumsArray(inputValue)).reverse());
