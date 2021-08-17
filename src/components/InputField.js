@@ -1,32 +1,28 @@
-import React, { useCallback } from "react";
-import { BsArrowRepeat, BsTrash } from "react-icons/bs";
+import React from 'react';
+import { BsArrowRepeat, BsTrash } from 'react-icons/bs';
 /** @jsxImportSource @emotion/react */
-import { jsx, css, keyframes } from "@emotion/react";
-import { COLOR_STYLES } from "styles";
+import { css, keyframes } from '@emotion/react';
+import { COLOR_STYLES } from 'styles';
 
-const InputField = ({ inputValue, setInputValue, handleSubmit }) => {
-  const handleChange = useCallback(
-    (e) => {
-      const word = e.target.value;
-      setInputValue(word);
-    },
-    [setInputValue]
-  );
+const InputField = ({ props }) => {
+  const { inputValue, handleChange, handleSubmit, handleClick, isLoading } =
+    props;
 
   return (
-    <form onSubmit={handleSubmit} css={formStyle}>
+    <form css={formStyle} onSubmit={handleSubmit}>
       <textarea
-        name="inputValue"
-        rows="5"
+        name='inputValue'
+        rows='5'
         value={inputValue}
         onChange={handleChange}
-        placeholder="숫자를 아래와 같이 입력해주세요. &#10;e.g. 1,2,3,4"
+        placeholder='숫자를 아래와 같이 입력해주세요. &#10;e.g. 1,2,3,4'
       ></textarea>
+
       <div css={btnContainer}>
-        <button>
-          <BsArrowRepeat css={spin} />
+        <button type='submit'>
+          <BsArrowRepeat css={isLoading && spin} />
         </button>
-        <button>
+        <button type='button' onClick={handleClick}>
           <BsTrash />
         </button>
       </div>
@@ -38,12 +34,13 @@ export default InputField;
 
 const formStyle = css`
   flex: 1;
+  width: 100%;
 
   textarea {
     height: 100%;
     width: 100%;
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 1rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.5rem;
     padding: 10px;
     border-radius: 3px;
     resize: none;
