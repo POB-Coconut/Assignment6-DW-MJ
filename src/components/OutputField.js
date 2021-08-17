@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const OutputField = ({ result }) => {
   console.log(result);
 
-  return <div></div>;
+  return <div>{result}</div>;
 };
 
 export default OutputField;

@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useCallback, useState } from "react";
 
-const InputField = ({ props }) => {
-  const { state, handleChange, handleSubmit } = props;
+const InputField = ({ inputValue, setInputValue, handleSubmit }) => {
+  const handleChange = useCallback(
+    (e) => {
+      const word = e.target.value;
+      setInputValue(word);
+    },
+    [setInputValue]
+  );
 
   return (
     <form onSubmit={handleSubmit}>
       <textarea
-        name='textInput'
-        rows='5'
-        value={state.textInput}
+        name="inputValue"
+        rows="5"
+        value={inputValue}
         onChange={handleChange}
       ></textarea>
       <button>go</button>

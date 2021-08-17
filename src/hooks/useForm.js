@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const useForm = (init = {}) => {
   const [state, setState] = useState(init);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const [submitState, setSubmitState] = useState("");
   const handleChange = (e) => {
     setState({
       [e.target.name]: e.target.value,
     });
-    setIsSubmitting(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setSubmitState(state);
   };
 
-  return { isSubmitting, state, handleChange, handleSubmit };
+  return { state, submitState, handleChange, handleSubmit };
 };
 
 export default useForm;
