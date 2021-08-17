@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "pages/Home";
-import { ROUTES } from "utils/constants";
+import { ROUTES } from "config";
 
 const Routes = () => {
   return (
