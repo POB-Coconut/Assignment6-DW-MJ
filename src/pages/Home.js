@@ -1,18 +1,12 @@
-<<<<<<< HEAD
 import React, { useState, useCallback } from "react";
+/** @jsxImportSource @emotion/react */
+import { jsx, css } from "@emotion/react";
+import { COLOR_STYLES, flexCenter } from "styles";
 import { quickSort, getNumsArray, inputValidate } from "utils";
 import { Timer, Clock, InputField, OutputField } from "components";
-=======
-import React, { useState, useCallback } from 'react';
-/** @jsxImportSource @emotion/react */
-import { jsx, css } from '@emotion/react';
-import { COLOR_STYLES, flexCenter } from 'styles';
-import { quickSort, getNumsArray } from 'utils';
-import { Timer, Clock, InputField, OutputField } from 'components';
->>>>>>> 5c8747abcd380469edc28c35b99099315a3c34f7
 
 const Home = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [ascendingNums, setAscendingNums] = useState([]);
   const [descendingNums, setDescendingNums] = useState([]);
 

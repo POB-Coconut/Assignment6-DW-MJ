@@ -1,13 +1,9 @@
-import React from 'react';
-import { FaSortNumericUpAlt, FaSortNumericDownAlt } from 'react-icons/fa';
+import React from "react";
+import { FaSortNumericUpAlt, FaSortNumericDownAlt } from "react-icons/fa";
 /** @jsxImportSource @emotion/react */
-import { jsx, css } from '@emotion/react';
-import { COLOR_STYLES } from 'styles';
+import { jsx, css } from "@emotion/react";
+import { COLOR_STYLES } from "styles";
 
-<<<<<<< HEAD
-const OutputField = ({ result }) => {
-  return <div>{result}</div>;
-=======
 const OutputField = ({ result, ascending }) => {
   console.log(result);
 
@@ -15,12 +11,11 @@ const OutputField = ({ result, ascending }) => {
     <article css={container}>
       <div css={orderContainer}>
         {ascending ? <FaSortNumericUpAlt /> : <FaSortNumericDownAlt />}
-        <span>{ascending ? '오름차순' : '내림차순'}</span>
+        <span>{ascending ? "오름차순" : "내림차순"}</span>
       </div>
       <p>{result}</p>
     </article>
   );
->>>>>>> 5c8747abcd380469edc28c35b99099315a3c34f7
 };
 
 export default OutputField;

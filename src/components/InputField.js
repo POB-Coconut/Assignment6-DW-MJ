@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 import React, { useCallback } from "react";
-=======
-import React, { useCallback } from 'react';
-import { BsArrowRepeat, BsTrash } from 'react-icons/bs';
+import { BsArrowRepeat, BsTrash } from "react-icons/bs";
 /** @jsxImportSource @emotion/react */
-import { jsx, css, keyframes } from '@emotion/react';
-import { COLOR_STYLES } from 'styles';
->>>>>>> 5c8747abcd380469edc28c35b99099315a3c34f7
+import { jsx, css, keyframes } from "@emotion/react";
+import { COLOR_STYLES } from "styles";
 
 const InputField = ({ inputValue, setInputValue, handleSubmit }) => {
   const handleChange = useCallback(
@@ -20,11 +16,11 @@ const InputField = ({ inputValue, setInputValue, handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit} css={formStyle}>
       <textarea
-        name='inputValue'
-        rows='5'
+        name="inputValue"
+        rows="5"
         value={inputValue}
         onChange={handleChange}
-        placeholder='숫자를 아래와 같이 입력해주세요. &#10;e.g. 1,2,3,4'
+        placeholder="숫자를 아래와 같이 입력해주세요. &#10;e.g. 1,2,3,4"
       ></textarea>
       <div css={btnContainer}>
         <button>
@@ -46,7 +42,7 @@ const formStyle = css`
   textarea {
     height: 100%;
     width: 100%;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-size: 1rem;
     padding: 10px;
     border-radius: 3px;
