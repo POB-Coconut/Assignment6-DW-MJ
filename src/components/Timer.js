@@ -1,12 +1,15 @@
-import React from "react";
+import React from 'react';
+/** @jsxImportSource @emotion/react */
+import { jsx, css } from '@emotion/react';
+import { COLOR_STYLES } from 'styles';
 
 const Timer = ({ isKR }) => {
   const curDate = getCurDate();
   const formatedDate = isKR ? formatDateKR(curDate) : formatDateUS(curDate);
 
   return (
-    <div>
-      <span>{formatedDate}</span>
+    <div css={container}>
+      <h2>{formatedDate}</h2>
     </div>
   );
 };
@@ -41,3 +44,9 @@ const formatDateUS = (curDate) => {
 
   return `${dateStr.daysEN[day]}, ${dateStr.MonthsEN[month]} ${date}, ${year}`;
 };
+
+const container = css`
+  h2 {
+    font-size: 2rem;
+  }
+`;
