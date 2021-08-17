@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import { getFormTime } from 'utils/getFormTime';
-import { getCurTime } from 'utils/getCurTime';
+import { css } from "@emotion/react";
+import { getFormTime, getCurTime } from "utils";
 
 const Clock = () => {
   const [curTime, setCurTime] = useState(getCurTime());

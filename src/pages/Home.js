@@ -1,13 +1,13 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback } from "react";
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import { COLOR_STYLES, flexCenter } from 'styles';
-import { quickSort, getNumsArray, inputValidate } from 'utils';
-import { Timer, Clock, InputField, OutputField } from 'components';
+import { css } from "@emotion/react";
+import { COLOR_STYLES, flexCenter } from "styles";
+import { quickSort, getNumsArray, inputValidate } from "utils";
+import { Timer, Clock, InputField, OutputField } from "components";
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState('');
-  const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [ascendingNums, setAscendingNums] = useState([]);
   const [descendingNums, setDescendingNums] = useState([]);
 
@@ -24,16 +24,16 @@ const Home = () => {
       e.preventDefault();
 
       if (!inputValidate(inputValue)) {
-        alert('잘못된 형식의 입력 데이터입니다.');
+        alert("잘못된 형식의 입력 데이터입니다.");
         clearAllValues();
         return;
       }
 
       setIsLoading(true);
       setDescendingNums([]);
-      setAscendingNums(quickSort(getNumsArray(inputValue)));
+      setAscendingNums(quickSort(getNumsArray(inputValue), "asc"));
       setTimeout(() => {
-        setDescendingNums(quickSort(getNumsArray(inputValue)).reverse());
+        setDescendingNums(quickSort(getNumsArray(inputValue), "desc"));
         setIsLoading(false);
       }, 3000);
     },
@@ -45,7 +45,7 @@ const Home = () => {
   };
 
   const clearAllValues = () => {
-    setInputValue('');
+    setInputValue("");
     setAscendingNums([]);
     setDescendingNums([]);
   };

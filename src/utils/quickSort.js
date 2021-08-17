@@ -1,21 +1,48 @@
-export const quickSort = (array) => {
-  if (array.length < 2) {
-    return array;
-  }
-
-  const pivot = [array[0]];
-  const left = [];
-  const right = [];
-
-  for (let i = 1; i < array.length; i++) {
-    if (array[i] < pivot) {
-      left.push(array[i]);
-    } else if (array[i] > pivot) {
-      right.push(array[i]);
+const divide = (array, command, left, right, pivot) => {
+  while (left <= right) {
+    if (command === "asc") {
+      while (array[left] < pivot) {
+        left++;
+      }
+      while (array[right] > pivot) {
+        right--;
+      }
     } else {
-      pivot.push(array[i]);
+      while (array[left] > pivot) {
+        left++;
+      }
+      while (array[right] < pivot) {
+        right--;
+      }
+    }
+
+    if (left <= right) {
+      let swap = array[left];
+      array[left] = array[right];
+      array[right] = swap;
+      left++;
+      right--;
     }
   }
+  return left;
+};
 
-  return quickSort(left).concat(pivot, quickSort(right));
+export const quickSort = (
+  array,
+  command,
+  left = 0,
+  right = array.length - 1
+) => {
+  if (left >= right) {
+    return;
+  }
+
+  const mid = Math.floor((left + right) / 2);
+  const pivot = array[mid];
+  const partition = divide(array, command, left, right, pivot);
+
+  quickSort(array, command, left, partition - 1);
+  quickSort(array, command, partition, right);
+
+  return array;
 };
