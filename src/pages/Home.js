@@ -1,9 +1,12 @@
 import React from "react";
+import { Timer, Clock } from "components";
 
 const Home = () => {
   return (
     <div>
-      <p>홈</p>
+      <Timer isKR={true} />
+      <Timer isKR={false} />
+      <Clock />
     </div>
   );
 };
