@@ -1,19 +1,25 @@
-import React from "react";
-import { FaSortNumericUpAlt, FaSortNumericDownAlt } from "react-icons/fa";
+import React from 'react';
+import { FaSortNumericUpAlt, FaSortNumericDownAlt } from 'react-icons/fa';
 /** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
-import { COLOR_STYLES } from "styles";
+import { css } from '@emotion/react';
+import { COLOR_STYLES } from 'styles';
 
 const OutputField = ({ result, ascending }) => {
-  console.log(result);
-
   return (
     <article css={container}>
-      <div css={orderContainer}>
-        {ascending ? <FaSortNumericUpAlt /> : <FaSortNumericDownAlt />}
-        <span>{ascending ? "오름차순" : "내림차순"}</span>
-      </div>
-      <p>{result}</p>
+      {ascending ? (
+        <div css={orderContainer}>
+          <FaSortNumericUpAlt />
+          <span>오름차순</span>
+        </div>
+      ) : (
+        <div css={orderContainer}>
+          <FaSortNumericDownAlt />
+          <span>내림차순</span>
+        </div>
+      )}
+
+      <p>{result.join(',')}</p>
     </article>
   );
 };
@@ -22,12 +28,19 @@ export default OutputField;
 
 const container = css`
   flex: 1;
-  width: 60%;
+  width: 400px;
+  height: 275px;
   position: relative;
   background-color: ${COLOR_STYLES.white};
   padding: 10px;
   margin: 20px 0;
   color: ${COLOR_STYLES.black};
+  overflow-wrap: break-word;
+  overflow-y: scroll;
+
+  p {
+    font-size: 1.5rem;
+  }
 `;
 
 const orderContainer = css`

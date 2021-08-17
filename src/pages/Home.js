@@ -1,30 +1,54 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback } from 'react';
 /** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
-import { COLOR_STYLES, flexCenter } from "styles";
-import { quickSort, getNumsArray, inputValidate } from "utils";
-import { Timer, Clock, InputField, OutputField } from "components";
+import { css } from '@emotion/react';
+import { COLOR_STYLES, flexCenter } from 'styles';
+import { quickSort, getNumsArray, inputValidate } from 'utils';
+import { Timer, Clock, InputField, OutputField } from 'components';
 
 const Home = () => {
-  const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState('');
+  const [inputValue, setInputValue] = useState('');
   const [ascendingNums, setAscendingNums] = useState([]);
   const [descendingNums, setDescendingNums] = useState([]);
+
+  const handleChange = useCallback(
+    (e) => {
+      const word = e.target.value;
+      setInputValue(word);
+    },
+    [setInputValue]
+  );
 
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
+
       if (!inputValidate(inputValue)) {
-        alert("잘못된 형식의 입력 데이터입니다.");
+        alert('잘못된 형식의 입력 데이터입니다.');
+        clearAllValues();
         return;
       }
 
+      setIsLoading(true);
+      setDescendingNums([]);
       setAscendingNums(quickSort(getNumsArray(inputValue)));
       setTimeout(() => {
         setDescendingNums(quickSort(getNumsArray(inputValue)).reverse());
+        setIsLoading(false);
       }, 3000);
     },
     [inputValue]
   );
+
+  const handleClick = () => {
+    clearAllValues();
+  };
+
+  const clearAllValues = () => {
+    setInputValue('');
+    setAscendingNums([]);
+    setDescendingNums([]);
+  };
 
   return (
     <div css={container}>
@@ -34,9 +58,13 @@ const Home = () => {
           <Timer isKR={false} />
           <Clock />
           <InputField
-            inputValue={inputValue}
-            handleSubmit={handleSubmit}
-            setInputValue={setInputValue}
+            props={{
+              inputValue,
+              handleSubmit,
+              handleChange,
+              handleClick,
+              isLoading,
+            }}
           />
         </section>
         <section css={resultSection}>
@@ -71,6 +99,7 @@ const timeSection = css`
   flex-basis: 40%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   padding: 30px 20px;
 `;
@@ -81,4 +110,5 @@ const resultSection = css`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  overflow-wrap: break-word;
 `;
