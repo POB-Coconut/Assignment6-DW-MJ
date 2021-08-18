@@ -1,5 +1,5 @@
 export const ROUTES = {
-  HOME: "/",
+  HOME: '/',
 };
 
 // prettier-ignore
@@ -14,13 +14,13 @@ export const DATE_STR = {
     "토요일",
   ],
   daysEN: [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
   ],
   MonthsEN: [
     "January",
