@@ -7,7 +7,7 @@ import useForm from 'hooks/useForm';
 import { Timer, Clock, InputField, OutputField } from 'components';
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [ascendingNums, setAscendingNums] = useState([]);
   const [descendingNums, setDescendingNums] = useState([]);
   const { state, handleChange, handleSubmit, clearFormVals } = useForm(sort);
