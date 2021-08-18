@@ -2,7 +2,6 @@ export const ROUTES = {
   HOME: '/',
 };
 
-// prettier-ignore
 export const DATE_STR = {
   daysKR: [
     "일요일",

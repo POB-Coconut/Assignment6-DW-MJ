@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Global, css } from '@emotion/react';
-import emotionReset from 'emotion-reset';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import App from "App";
+import { Global, css } from "@emotion/react";
+import emotionReset from "emotion-reset";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -18,11 +18,11 @@ ReactDOM.render(
           box-sizing: border-box;
         }
         body {
-          font-family: 'Noto Sans KR', sans-serif;
+          font-family: "Noto Sans KR", sans-serif;
         }
       `}
     />
     <App />
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

@@ -96,21 +96,3 @@ const resultSection = css`
   align-items: flex-end;
   overflow-wrap: break-word;
 `;
-
-// const handleSubmit = useCallback((e) => {
-//   e.preventDefault();
-
-//   if (!inputValidate(state.text)) {
-//     alert('잘못된 형식의 입력 데이터입니다.');
-//     clearAllValues();
-//     return;
-//   }
-
-//   setIsLoading(true);
-//   setDescendingNums([]);
-//   setAscendingNums(quickSort(getNumsArray(state.text), 'asc'));
-//   setTimeout(() => {
-//     setDescendingNums(quickSort(getNumsArray(state.text), 'desc'));
-//     setIsLoading(false);
-//   }, 3000);
-// }, []);
