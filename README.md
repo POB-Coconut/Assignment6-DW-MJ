@@ -1,7 +1,9 @@
 # Assignment6-DW-MJ
 
 ## 개요
+
 ### 솔라커넥트 기업과제
+
 - 재사용성 고려한 한글 / 영어 Timer 구현
 - 정렬 자료구조를 이용한 정렬 기능
 
@@ -43,6 +45,10 @@
 ### Validate
 
 - 정규식을 이용한 형식 체크
+
+## 데모 영상
+
+<img src="https://user-images.githubusercontent.com/59330828/129817929-7c32027b-6982-4c39-a5a8-8b9b91db0cbd.gif" alt="gif" />
 
 ## 참고
 

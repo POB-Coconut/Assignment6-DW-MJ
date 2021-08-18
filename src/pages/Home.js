@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from "react";
+import { quickSort, getNumsArray, inputValidate } from "utils";
+import { Timer, Clock, InputField, OutputField } from "components";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { COLOR_STYLES, flexCenter } from "styles";
-import { quickSort, getNumsArray, inputValidate } from "utils";
-import { Timer, Clock, InputField, OutputField } from "components";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState("");

@@ -1,7 +1,7 @@
 import React from "react";
+import { getFormDateKR, getFormDateUS, getCurDate } from "utils";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { getFormDateKR, getFormDateUS, getCurDate } from "utils";
 
 const Timer = ({ isKR }) => {
   const curDate = getCurDate();
