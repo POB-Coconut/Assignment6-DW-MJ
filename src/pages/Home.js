@@ -32,6 +32,7 @@ const Home = () => {
       setIsLoading(true);
       setDescendingNums([]);
       setAscendingNums(quickSort(getNumsArray(inputValue), "asc"));
+
       setTimeout(() => {
         setDescendingNums(quickSort(getNumsArray(inputValue), "desc"));
         setIsLoading(false);

@@ -48,7 +48,7 @@
 
 ## 데모 영상
 
-<img src="https://user-images.githubusercontent.com/59330828/129817929-7c32027b-6982-4c39-a5a8-8b9b91db0cbd.gif" alt="gif" />
+<img src="https://user-images.githubusercontent.com/59330828/129818232-ccbc726e-e050-4c8e-8376-054d358c2b27.gif" alt="gif" />
 
 ## 참고
 
