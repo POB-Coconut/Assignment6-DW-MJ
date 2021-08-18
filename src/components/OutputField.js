@@ -32,9 +32,9 @@ const container = css`
   height: 275px;
   position: relative;
   background-color: ${COLOR_STYLES.white};
+  color: ${COLOR_STYLES.black};
   padding: 10px;
   margin: 20px 0;
-  color: ${COLOR_STYLES.black};
   overflow-wrap: break-word;
   overflow-y: scroll;
 

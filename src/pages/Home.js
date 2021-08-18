@@ -1,52 +1,35 @@
-import React, { useState, useCallback } from "react";
-import { quickSort, getNumsArray, inputValidate } from "utils";
-import { Timer, Clock, InputField, OutputField } from "components";
+import React, { useState } from 'react';
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import { COLOR_STYLES, flexCenter } from "styles";
+import { css } from '@emotion/react';
+import { COLOR_STYLES, flexCenter } from 'styles';
+import { quickSort, getNumsArray, inputValidate } from 'utils';
+import useForm from 'hooks/useForm';
+import { Timer, Clock, InputField, OutputField } from 'components';
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState("");
-  const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState('');
   const [ascendingNums, setAscendingNums] = useState([]);
   const [descendingNums, setDescendingNums] = useState([]);
+  const { state, handleChange, handleSubmit, clearFormVals } = useForm(sort);
 
-  const handleChange = useCallback(
-    (e) => {
-      const word = e.target.value;
-      setInputValue(word);
-    },
-    [setInputValue]
-  );
+  function sort() {
+    if (!inputValidate(state.text)) {
+      alert('잘못된 형식의 입력 데이터입니다.');
+      clearAllValues();
+      return;
+    }
 
-  const handleSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-
-      if (!inputValidate(inputValue)) {
-        alert("잘못된 형식의 입력 데이터입니다.");
-        clearAllValues();
-        return;
-      }
-
-      setIsLoading(true);
-      setDescendingNums([]);
-      setAscendingNums(quickSort(getNumsArray(inputValue), "asc"));
-
-      setTimeout(() => {
-        setDescendingNums(quickSort(getNumsArray(inputValue), "desc"));
-        setIsLoading(false);
-      }, 3000);
-    },
-    [inputValue]
-  );
-
-  const handleClick = () => {
-    clearAllValues();
-  };
+    setIsLoading(true);
+    setDescendingNums([]);
+    setAscendingNums(quickSort(getNumsArray(state.text), 'asc'));
+    setTimeout(() => {
+      setDescendingNums(quickSort(getNumsArray(state.text), 'desc'));
+      setIsLoading(false);
+    }, 3000);
+  }
 
   const clearAllValues = () => {
-    setInputValue("");
+    clearFormVals();
     setAscendingNums([]);
     setDescendingNums([]);
   };
@@ -60,10 +43,10 @@ const Home = () => {
           <Clock />
           <InputField
             props={{
-              inputValue,
+              state,
               handleSubmit,
               handleChange,
-              handleClick,
+              clearAllValues,
               isLoading,
             }}
           />
