@@ -7,6 +7,10 @@ import { COLOR_STYLES } from 'styles';
 const OutputField = ({ result, ascending }) => {
   return (
     <article css={container}>
+      <div css={resultContainer}>
+        <p>{result.join(',')}</p>
+      </div>
+
       {ascending ? (
         <div css={orderContainer}>
           <FaSortNumericUpAlt />
@@ -18,8 +22,6 @@ const OutputField = ({ result, ascending }) => {
           <span>내림차순</span>
         </div>
       )}
-
-      <p>{result.join(',')}</p>
     </article>
   );
 };
@@ -31,10 +33,15 @@ const container = css`
   width: 400px;
   height: 275px;
   position: relative;
+  margin: 20px 0;
+`;
+
+const resultContainer = css`
+  height: 100%;
+  width: 100%;
   background-color: ${COLOR_STYLES.white};
   color: ${COLOR_STYLES.black};
   padding: 10px;
-  margin: 20px 0;
   overflow-wrap: break-word;
   overflow-y: scroll;
 
