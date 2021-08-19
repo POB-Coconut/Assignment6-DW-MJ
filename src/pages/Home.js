@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import { COLOR_STYLES, flexCenter } from 'styles';
-import { quickSort, getNumsArray, inputValidate } from 'utils';
-import useForm from 'hooks/useForm';
-import { Timer, Clock, InputField, OutputField } from 'components';
+import { css } from "@emotion/react";
+import { COLOR_STYLES, flexCenter } from "styles";
+import { quickSort, getNumsArray, inputValidate } from "utils";
+import useForm from "hooks/useForm";
+import { Timer, Clock, InputField, OutputField } from "components";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,16 +14,16 @@ const Home = () => {
 
   function sort() {
     if (!inputValidate(state.text)) {
-      alert('잘못된 형식의 입력 데이터입니다.');
+      alert("잘못된 형식의 입력 데이터입니다.");
       clearAllValues();
       return;
     }
 
     setIsLoading(true);
     setDescendingNums([]);
-    setAscendingNums(quickSort(getNumsArray(state.text), 'asc'));
+    setAscendingNums(quickSort(getNumsArray(state.text), "asc"));
     setTimeout(() => {
-      setDescendingNums(quickSort(getNumsArray(state.text), 'desc'));
+      setDescendingNums(quickSort(getNumsArray(state.text), "desc"));
       setIsLoading(false);
     }, 3000);
   }
@@ -38,8 +38,8 @@ const Home = () => {
     <div css={container}>
       <main css={main}>
         <section css={timeSection}>
-          <Timer isKR={true} />
-          <Timer isKR={false} />
+          <Timer localeType="ko-KR" />
+          <Timer localeType="en-US" />
           <Clock />
           <InputField
             props={{
