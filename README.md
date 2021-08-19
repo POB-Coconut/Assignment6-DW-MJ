@@ -12,7 +12,7 @@
 ### [페이지 링크](https://solarconnect-assignment.netlify.app/)
 
 ## 팀원
-
+페어 프로그래밍을 진행하면서 역할을 나누지 않고 함께 개발했습니다. 
 | 이름   | GitHub                                    |
 | ------ | ----------------------------------------- |
 | 김동원 | [dongwonnn](https://github.com/dongwonnn) |
